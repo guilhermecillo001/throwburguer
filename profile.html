@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="perfil-styles.css">
+    <script>
+        window.onload = function() {
+            // Obtendo os dados do usuário do localStorage
+            const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+            // Exibindo os dados na página
+            if (usuario) {
+                document.getElementById('user-photo').src = usuario.foto;
+                document.getElementById('user-name').textContent = usuario.nome + ' ' + usuario.sobrenome;
+                document.getElementById('user-address').textContent = usuario.endereco;
+                document.getElementById('user-city').textContent = usuario.cidade;
+                document.getElementById('user-phone').textContent = usuario.telefone;
+                document.getElementById('user-email').textContent = usuario.email;
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <img src="img/imperf.png" alt="Imagem de Cabeçalho">
+    </header>
+    <div class="container">
+        <div id="profile-page" class="profile-container">
+            <h1>Perfil do Usuário</h1>
+            <button onclick="logout()">Sair</button>
+            <a href="index.html"><button onclick="inicio()">Voltar a página inicial</button></a>
+
+            <div class="profile-details">
+                <div class="profile-item">
+                    <h2>Foto de Perfil</h2>
+                    <img id="user-photo" alt="Foto de Perfil" class="profile-photo">
+                </div>
+                <div class="profile-item">
+                    <h2>Nome</h2>
+                    <p id="user-name"></p>
+                </div>
+                <div class="profile-item">
+                    <h2>Endereço</h2>
+                    <p id="user-address"></p>
+                </div>
+                <div class="profile-item">
+                    <h2>Cidade</h2>
+                    <p id="user-city"></p>
+                </div>
+                <div class="profile-item">
+                    <h2>Telefone</h2>
+                    <p id="user-phone"></p>
+                </div>
+                <div class="profile-item">
+                    <h2>Email</h2>
+                    <p id="user-email"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Throw Burger Company. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
